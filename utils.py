@@ -205,7 +205,7 @@ class check(object):
                 num = 1
                 for value in value_list:
                     print(f"<----------------账号【{num}】---------------->")
-                    print(f"获取到的账号信息为:{value}\n")
+                    # print(f"获取到的账号信息为:{value}\n")
                     num += 1
                     try:
                         result = func(value=value) + '\n\n'

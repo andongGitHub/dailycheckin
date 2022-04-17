@@ -129,12 +129,12 @@ class config_get(object):
     @staticmethod
     def move_configuration_file_old():
         print("移动配置文件")
-        os.system("cp /ql/repo/yuxian158_check/check.sample.toml /ql/config/check.toml")
+        os.system("cp /ql/repo/panyh2001_dailycheckin/check.sample.toml /ql/config/check.toml")
 
     @staticmethod
     def move_configuration_file_new():
         print("移动配置文件")
-        os.system("cp /ql/data/repo/yuxian158_check/check.sample.toml /ql/data/config/check.toml")
+        os.system("cp /ql/data/repo/panyh2001_dailycheckin/check.sample.toml /ql/data/config/check.toml")
 
     @staticmethod
     def get_value_for_toml(toml_path, key):
@@ -289,11 +289,11 @@ def change_cron_old(cron_file_path="/ql/db/crontab.db", repositories="yuxian158_
 if __name__ == "__main__":
     pip_install()
     config = config_get()
-    if config.config_path == "/ql/config/":
-        if os.path.isfile("/ql/db/database.sqlite"):
-            change_cron_new(cron_file_path="/ql/db/database.sqlite")
-        else:
-            change_cron_old()
-    else:
-        change_cron_new()
-        print("修改完成请重启容器")
+    #if config.config_path == "/ql/config/":
+    #    if os.path.isfile("/ql/db/database.sqlite"):
+    #        change_cron_new(cron_file_path="/ql/db/database.sqlite")
+    #    else:
+    #        change_cron_old()
+    #else:
+    #    change_cron_new()
+    #    print("修改完成请重启容器")

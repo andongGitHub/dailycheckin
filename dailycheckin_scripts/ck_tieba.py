@@ -36,7 +36,7 @@ class Tieba:
 
     @staticmethod
     def tieba_list_more(session):
-        content = session.get(url="http://tieba.baidu.com/f/like/mylike?&pn=1", timeout=(5, 20), allow_redirects=False)
+        content = session.get(url="http://tieba.baidu.com/f/like/mylike?&pn=1", timeout=(5, 20), allow_redirects=True)
         try:
             pn = int(re.match(r".*/f/like/mylike\?&pn=(.*?)\">尾页.*", content.text, re.S | re.I).group(1))
         except Exception as e:
@@ -49,7 +49,7 @@ class Tieba:
                 yield x
             next_page += 1
             content = session.get(
-                url=f"http://tieba.baidu.com/f/like/mylike?&pn={next_page}", timeout=(5, 20), allow_redirects=False
+                url=f"http://tieba.baidu.com/f/like/mylike?&pn={next_page}", timeout=(5, 20), allow_redirects=True
             )
 
     def get_tieba_list(self, session):
